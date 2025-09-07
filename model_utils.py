@@ -16,7 +16,7 @@ def load_and_clean_data():
     """
     print("Loading and cleaning global data...")
 
-    # Load the data - NO NEED for error handling since she cleans it properly
+    # Load the data 
     df = pd.read_csv(data_link)
     print(f"Raw data loaded. Shape: {df.shape}")  # DEBUG
     # YOUR TEAMMATE'S SUPERIOR CLEANING CODE:
@@ -213,4 +213,5 @@ def get_model_comparison(country_name):
     }
 # Load data once when module is imported
 cleaned_data = load_and_clean_data()
+
 available_countries = get_available_countries()
