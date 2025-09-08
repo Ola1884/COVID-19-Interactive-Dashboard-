@@ -4,6 +4,7 @@ from dash.exceptions import PreventUpdate
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
+import os 
 from model_utils import get_available_countries, get_country_data,get_global_data, prophet_forecast,get_model_comparison,random_forest_forecast
 
 app = Dash(__name__,suppress_callback_exceptions=True)
@@ -320,5 +321,6 @@ if __name__ == '__main__':
     except Exception as e:
         logging.error(f"Server failed to start: {e}")
         raise
+
 
 
