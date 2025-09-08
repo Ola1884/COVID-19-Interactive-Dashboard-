@@ -309,14 +309,16 @@ def update_model_comparison(selected_country, current_tab):
     ], style={'padding': '20px', 'backgroundColor': '#f8f9fa', 'borderRadius': '10px'})
     
     return fig, metrics_html
+import logging
+logging.basicConfig(level=logging.INFO)
+
 if __name__ == '__main__':
-    # Get the port from Railway's environment variable, or use 8050 locally
     port = int(os.environ.get("PORT", 8050))
-    
-    # Run the server (0.0.0.0 is required for external access)
-    app.run_server(
-        host='0.0.0.0',
-        port=port,
-        debug=False  # Set to False in production
-    )
+    logging.info(f"Starting server on port {port}")
+    try:
+        app.run_server(host='0.0.0.0', port=port, debug=False)
+    except Exception as e:
+        logging.error(f"Server failed to start: {e}")
+        raise
+
 
