@@ -1,5 +1,6 @@
-dash
-dash-bootstrap-components
+prophet
+pystan>=2.14
+numpy
 pandas
-plotly
-gunicorn
+matplotlib
+scipy
