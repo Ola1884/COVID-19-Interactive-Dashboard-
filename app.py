@@ -9,6 +9,14 @@ from model_utils import get_available_countries, get_country_data,get_global_dat
 
 app = Dash(__name__,suppress_callback_exceptions=True)
 server = app.server
+# Add these health check routes
+@app.server.route('/health')
+def health_check():
+    return 'OK', 200
+
+@app.server.route('/')
+def root_check():
+    return 'OK', 200
 
 country_options =   [{'label':country,'value':country} for country in get_available_countries()]
 
@@ -316,6 +324,7 @@ logging.basicConfig(level=logging.INFO)
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8050))
     app.run(host='0.0.0.0', port=port, debug=False) 
+
 
 
 
