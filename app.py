@@ -315,12 +315,8 @@ logging.basicConfig(level=logging.INFO)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8050))
-    logging.info(f"Starting server on port {port}")
-    try:
-        app.run_server(host='0.0.0.0', port=port, debug=False)
-    except Exception as e:
-        logging.error(f"Server failed to start: {e}")
-        raise
+    app.run(host='0.0.0.0', port=port, debug=False) 
+
 
 
 
